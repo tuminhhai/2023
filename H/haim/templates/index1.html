@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Text Translation</title>
+    <style>
+      /* Add CSS styling here */
+      form {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      textarea, select {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      h1, h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Text Translation</h1>
+    <form method="post" action="/translate">
+      <label for="source_text">Source Text:</label>
+      <textarea name="source_text" id="source_text" required></textarea>
+      <label for="source_lang">Source Language:</label>
+      <select name="source_lang" id="source_lang" required>
+        <option value="English">English</option>
+        <option value="German">German</option>
+        <option value="French">French</option>
+        <option value="Korea">Korea</option>
+        <option value="Vietnam">Vietnam</option>
+        <option value="Thailand">Thailand</option>
+        <!-- Add more options for supported languages -->
+      </select>
+      <label for="target_lang">Target Language:</label>
+      <select name="target_lang" id="target_lang" required>
+        <option value="English">English</option>
+        <option value="German">German</option>
+        <option value="French">French</option>
+        <option value="Korea">Korea</option>
+        <option value="Vietnam">Vietnam</option>
+        <option value="Thailand">Thailand</option>
+        <!-- Add more options for supported languages -->
+      </select>
+      <input type="submit" value="Translate">
+    </form>
+    {% if target_text %}
+      <h2>Result:</h2>
+      <p><b>Source Text:</b> {{ source_text }}</p>
+      <p><b>Target Text:</b> {{ target_text }}</p>
+    {% endif %}
+  </body>
+</html>
